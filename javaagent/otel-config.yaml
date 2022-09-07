@@ -1,0 +1,21 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+# Data Prepper Collector configuration
+exporters:
+  otlp/data-prepper:
+     # Port 21890 is the default port exposed by Data Prepper.
+    endpoint: 0.0.0.0:21890
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [otlp/data-prepper]
+    metrics:
+      receivers: [otlp]
+      exporters: [otlp/data-prepper]
