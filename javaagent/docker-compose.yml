@@ -8,6 +8,8 @@ services:
       - bootstrap.memory_lock=true # along with the memlock settings below, disables swapping
       - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m" # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
       - plugins.security.disabled=true
+      - OPENSEARCH_USERNAME=admin
+      - OPENSEARCH_PASSWORD=admin
     ulimits:
       memlock:
         soft: -1
@@ -28,9 +30,8 @@ services:
     expose:
       - "5601"
     environment:
-      OPENSEARCH_HOSTS: '["http://opensearch:9200"]'
-      OPENSEARCH_USERNAME: "admin"
-      OPENSEARCH_PASSWORD: "admin"
+      OPENSEARCH_HOSTS: '["http://gateway.docker.internal:9200"]'
+      DISABLE_SECURITY_DASHBOARDS_PLUGIN: 'true'
     depends_on:
       - opensearch
     networks:
