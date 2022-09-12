@@ -23,7 +23,7 @@ services:
       # - AWS_PROFILE=myprofile
 
     volumes:
-      - /Users/vishnu/git/opentelemetry-poc/javaagent-ex/opentelemetry-java-docs/javaagent/otel-config.yaml:/etc/otel-agent-config.yaml
+      - /Users/vishnu/git/opentelemetry-poc/javaagent/otel-config.yaml:/etc/otel-agent-config.yaml
     ports:
       - "1777:1777"   # pprof extension
       - "55679:55679" # zpages extension

@@ -17,14 +17,13 @@ raw-pipeline:
   sink:
     - opensearch:
         hosts:
-          - "http://127.0.0.1:9200"
+          - "http://localhost:9200"
         insecure: true
         #trace_analytics_raw: true
         #cert: "/usr/share/data-prepper/root-ca.pem"
         username: "admin"
         password: "admin"
         index_type: trace-analytics-raw
-        index: test
 # service-map-pipeline:
 #   delay: "100"
 #   source:
